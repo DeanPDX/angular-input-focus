@@ -18,6 +18,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "angular-input-focus": [
+        "dist/angular-input-focus"
+      ],
+      "angular-input-focus/*": [
+        "dist/angular-input-focus/*"
+      ]
+    }
   }
 }

@@ -119,6 +119,41 @@
           }
         }
       }
+    },
+    "angular-input-focus": {
+      "projectType": "library",
+      "root": "projects/angular-input-focus",
+      "sourceRoot": "projects/angular-input-focus/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-input-focus/tsconfig.lib.json",
+            "project": "projects/angular-input-focus/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-input-focus/src/test.ts",
+            "tsConfig": "projects/angular-input-focus/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-input-focus/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-input-focus/tsconfig.lib.json",
+              "projects/angular-input-focus/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-input-focus-tester"
 }
