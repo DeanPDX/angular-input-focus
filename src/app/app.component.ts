@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-input-focus-tester';
+  title = 'Angular Input Focus Tester';
+  showInput = true;
+  focus = true;
+
+  delayToggleFocus() {
+    this.focus = true;
+    setTimeout(() => {
+      this.focus = !this.focus;
+    }, 1000);
+  }
 }

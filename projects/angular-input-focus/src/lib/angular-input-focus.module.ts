@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { AngularInputFocusComponent } from './angular-input-focus.component';
+import { AngularInputFocusDirective } from './angular-input-focus.directive';
 
 @NgModule({
-  declarations: [AngularInputFocusComponent],
+  declarations: [AngularInputFocusDirective],
   imports: [
   ],
-  exports: [AngularInputFocusComponent]
+  exports: [AngularInputFocusDirective]
 })
 export class AngularInputFocusModule { }
