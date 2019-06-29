@@ -7,7 +7,11 @@ import { takeUntil } from 'rxjs/operators';
 })
 
 export class AngularInputFocusDirective implements OnInit, OnDestroy {
+  /**
+   * When set to true, directive will mimick `autofocus` like functionality for your input.
+   */
   @Input('libFocus') focus = true;
+
   /**
    * When you emit a true value, the input will gain focus. If false, the input will blur.
    */
