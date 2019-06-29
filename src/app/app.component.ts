@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +9,12 @@ export class AppComponent {
   title = 'Angular Input Focus Tester';
   showInput = true;
   focus = true;
+  focusEvent = new EventEmitter<boolean>();
 
   delayToggleFocus() {
-    this.focus = true;
+    this.focusEvent.emit(true);
     setTimeout(() => {
-      this.focus = !this.focus;
+      this.focusEvent.emit(false);
     }, 1000);
   }
 }

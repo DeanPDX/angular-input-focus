@@ -1,31 +1,26 @@
-import { Directive, ElementRef, Input, NgZone, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, NgZone, OnInit, EventEmitter, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Directive({
   selector: '[libFocus]'
 })
 
-export class AngularInputFocusDirective implements OnInit {
-  private initialized = false;
-  private focus = true;
-  @Input('libFocus')
-  set libFocus(value: boolean) {
-    this.focus = value;
-    // If we haven't initialized our control yet, nothing to do because `ngOnInit` will set focus for us. 
-    if (this.initialized === true) {
-      this.setFocusOnElement(this.focus);
-    }
+export class AngularInputFocusDirective implements OnInit, OnDestroy {
+  @Input('libFocus') focus = true;
+  /**
+   * When you emit a true value, the input will gain focus. If false, the input will blur.
+   */
+  @Input('setFocus') set setFocus(value: EventEmitter<boolean>) {
+    // Unsubscribe from any previous subs
+    this.killSubscriptions.next();
+    value.pipe(takeUntil(this.killSubscriptions)).subscribe(focus => this.setFocusOnElement(focus));
   }
 
-  constructor(private el: ElementRef, private zone: NgZone) { }
-
-  ngOnInit() {
-    this.initialized = true;
-    if (this.focus === false) {
-      return;
-    }
-    // On init, if focus is set, focus element to mimick autofocus functionality.
-    this.setFocusOnElement(true);
-  }
+  /**
+   * A subject that will emit a value when we should unsubscribe to our observables.
+   */
+  private killSubscriptions = new Subject();
 
   /**
    * Set the focus on the target element.
@@ -39,5 +34,19 @@ export class AngularInputFocusDirective implements OnInit {
         this.el.nativeElement.blur();
       }
     });
+  }
+
+  constructor(private el: ElementRef, private zone: NgZone) { }
+
+  ngOnInit() {
+    if (this.focus === true) {
+      // On init, if focus is set, focus element to mimick autofocus functionality.
+      this.setFocusOnElement(true);
+    }
+  }
+
+  ngOnDestroy() {
+    this.killSubscriptions.next();
+    this.killSubscriptions.complete();
   }
 }

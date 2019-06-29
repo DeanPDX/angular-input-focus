@@ -9,5 +9,5 @@
   <label for="focus">Focus?</label><input id="focus" type="checkbox" [checked]="focus" (change)="focus = !focus">
 </div>
 <div *ngIf="showInput" class="input-container">
-  <label>Input:</label> <input [libFocus]="focus">
+  <label>Input:</label> <input [libFocus]="focus" [setFocus]="focusEvent">
 </div>
