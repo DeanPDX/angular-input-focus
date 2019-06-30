@@ -1,6 +1,24 @@
 {
   "name": "angular-input-focus",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "An Angular focus attribute directive.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DeanPDX/angular-input-focus.git"
+  },
+  "keywords": [
+    "Angular",
+    "Forms",
+    "Input",
+    "Focus",
+    "Directive"
+  ],
+  "author": "Dean Davidson (http://deanpdx.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DeanPDX/angular-input-focus/issues"
+  },
+  "homepage": "https://github.com/DeanPDX/angular-input-focus",
   "peerDependencies": {
     "@angular/common": "^8.0.1",
     "@angular/core": "^8.0.1"

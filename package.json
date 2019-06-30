@@ -8,7 +8,12 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "auto-test": "ng test angular-input-focus --browsers ChromeHeadless --reporters junit --code-coverage --watch=false"
+    "auto-test": "ng test angular-input-focus --browsers ChromeHeadless --reporters junit --code-coverage --watch=false",
+    "build-lib": "ng build angular-input-focus && npm run copy-license && npm run copy-readme",
+    "patch-version": "cd projects/angular-input-focus && npm version patch && cd ../../",
+    "copy-license": "cp ./LICENSE ./dist/angular-input-focus",
+    "copy-readme": "cp ./README.md ./dist/angular-input-focus",
+    "publish-lib": "npm run patch-version && npm run build-lib && npm publish ./dist/angular-input-focus"
   },
   "private": true,
   "dependencies": {
