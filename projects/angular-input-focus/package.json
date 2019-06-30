@@ -1,6 +1,6 @@
 {
   "name": "angular-input-focus",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An Angular focus attribute directive.",
   "repository": {
     "type": "git",
