@@ -1,27 +1,59 @@
-# AngularInputFocusTester
+# Angular Input Focus Attribute Directive
+This package is for handling focus on html elements in Angular apps. It is tightly coupled with the DOM but safe to use in server-side rendering settings since we are checking to make sure the directive is running in a browser before using any DOM-specific functions.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+## Installation
+Install using NPM:
 
-## Development server
+```bash
+npm install angular-input-focus --save
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Next, import the module in your application module:
 
-## Code scaffolding
+```typescript
+import { AppComponent } from './app.component';
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+@NgModule({
+  providers: [AngularInputFocusModule]
+})
+```
 
-## Build
+Now you're ready to use the directive in your project.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Usage
+For autofocus-like functionality, use like this:
 
-## Running unit tests
+```html
+<!-- Focus First name when control is rendered -->
+First name: <input type="text" name="fname" [libFocus]="true">
+Last name: <input type="text" name="lname">
+ ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can also pass an `EventEmitter<boolean>` as `setFocus` like so:
 
-## Running end-to-end tests
+```typescript
+export class MyComponent {
+    // We will pass this to the directive in our view
+    focusEvent = new EventEmitter<boolean>();
+    setFocus() {
+        this.focusEvent.emit(true);
+    }
+}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```html
+<input [libFocus]="false" [setFocus]="focusEvent">`
+```
 
-## Further help
+Whenever your `focusEvent` emits a value, your element will focus/blur depending on whether the emitted value is `true` or `false`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Development
+
+The main app (`angular-input-focus-tester`) is for testing the `angular-input-focus` library in the `projects` folder. Run `ng serve` to build and serve the test app.
+
+To publish a new version of the library to [NPM](https://www.npmjs.com/), run `npm run publish-lib`. This will do the following:
+
+* Run `npm version patch` to create a new patch.
+* Build the library.
+* Copy readme/license from the main project to the library.
+* Publish the patch on NPM.
