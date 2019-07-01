@@ -3,6 +3,8 @@ This package is for handling focus on html elements in Angular apps. It is tight
 
 [![NPM](https://img.shields.io/npm/v/angular-input-focus.svg)](https://www.npmjs.com/package/angular-input-focus)
 [![Build Status](https://img.shields.io/appveyor/ci/DeanPDX/angular-input-focus.svg)](https://ci.appveyor.com/project/DeanPDX/angular-input-focus)
+[![Test Status](https://img.shields.io/appveyor/tests/DeanPDX/angular-input-focus.svg)](https://ci.appveyor.com/project/DeanPDX/angular-input-focus)
+[![Code Coverage](https://img.shields.io/codecov/c/github/DeanPDX/angular-input-focus.svg)](https://codecov.io/gh/DeanPDX/angular-input-focus)
 [![Dependencies Status](https://img.shields.io/david/DeanPDX/angular-input-focus.svg)](https://david-dm.org/DeanPDX/angular-input-focus)
 [![License](https://img.shields.io/github/license/DeanPDX/angular-input-focus.svg)](https://github.com/DeanPDX/angular-input-focus/blob/master/LICENSE)
 
