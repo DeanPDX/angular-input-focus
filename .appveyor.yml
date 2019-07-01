@@ -8,6 +8,7 @@ matrix:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
+  - npm install codecov -g
 
 test_script:
   - node --version
@@ -15,6 +16,7 @@ test_script:
 
 # Upload results to appveyor
 on_finish:
+  - codecov
   - sh: |
       find "$APPVEYOR_BUILD_FOLDER" -type f -name 'TEST*.xml' -print0 | xargs -0 -I '{}' curl -F 'file=@{}' "https://ci.appveyor.com/api/testresults/junit/$APPVEYOR_JOB_ID"
 
