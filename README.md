@@ -11,10 +11,10 @@ npm install angular-input-focus --save
 Next, import the module in your application module:
 
 ```typescript
-import { AppComponent } from './app.component';
+import { AngularInputFocusModule } from 'angular-input-focus';
 
 @NgModule({
-  providers: [AngularInputFocusModule]
+  imports: [AngularInputFocusModule]
 })
 ```
 
