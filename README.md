@@ -1,6 +1,10 @@
 # Angular Input Focus Attribute Directive
 This package is for handling focus on html elements in Angular apps. It is tightly coupled with the DOM but safe to use in server-side rendering settings since we are checking to make sure the directive is running in a browser before using any DOM-specific functions.
 
+[![NPM](https://img.shields.io/npm/v/angular-input-focus.svg)](https://www.npmjs.com/package/angular-input-focus)
+[![Dependencies Status](https://img.shields.io/david/DeanPDX/angular-input-focus.svg)](https://david-dm.org/DeanPDX/angular-input-focus)
+[![License](https://img.shields.io/github/license/DeanPDX/angular-input-focus.svg)](https://github.com/DeanPDX/angular-input-focus/blob/master/LICENSE)
+
 ## Installation
 Install using NPM:
 
