@@ -16,10 +16,8 @@ test_script:
 # Upload results to appveyor
 on_finish:
   - npm run coverage
-  - ps: |
-      # upload results to AppVeyor
-      $wc = New-Object 'System.Net.WebClient'
-      $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TEST-RESULTS.xml))
+  - ps: $wc = New-Object 'System.Net.WebClient'
+  - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TEST-RESULTS.xml))
 
 # Do a build of our app
 build_script:
