@@ -20,4 +20,4 @@ after_test:
 
 # Do a build of our app
 build_script:
-  - ng build angular-input-focus
+  - npm run ci-build
