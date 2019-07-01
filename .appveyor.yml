@@ -16,8 +16,10 @@ test_script:
 # Upload results to appveyor
 on_finish:
   - npm run coverage
-  - sh: |
-      find "$APPVEYOR_BUILD_FOLDER" -type f -name 'TEST-RESULTS.xml' -print0 | xargs -0 -I '{}' curl -F 'file=@{}' "https://ci.appveyor.com/api/testresults/junit/$APPVEYOR_JOB_ID"
+  - ps: |
+      # upload results to AppVeyor
+      $wc = New-Object 'System.Net.WebClient'
+      $wc.UploadFile("https://ci.appveyor.com/api/testresults/xunit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TEST-RESULTS.xml))
 
 # Do a build of our app
 build_script:
