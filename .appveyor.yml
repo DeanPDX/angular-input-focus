@@ -16,7 +16,8 @@ test_script:
 # Upload results to appveyor
 on_finish:
   - npm run coverage
-  - curl -F 'file=@$APPVEYOR_BUILD_FOLDER/TEST-RESULTS.xml' "https://ci.appveyor.com/api/testresults/junit/$APPVEYOR_JOB_ID"
+  - sh: |
+      find "$APPVEYOR_BUILD_FOLDER" -type f -name 'TEST-RESULTS.xml' -print0 | xargs -0 -I '{}' curl -F 'file=@{}' "https://ci.appveyor.com/api/testresults/junit/$APPVEYOR_JOB_ID"
 
 # Do a build of our app
 build_script:
