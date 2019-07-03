@@ -28,25 +28,28 @@ import { AngularInputFocusModule } from 'angular-input-focus';
 Now you're ready to use the directive in your project.
 
 ## Usage
-For autofocus-like functionality, use like this:
+For autofocus-like functionality, you can set `libFocus` to true (or a condition):
 
 ```html
 <!-- Focus First name when control is rendered -->
 First name: <input type="text" name="fname" [libFocus]="true">
 Last name: <input type="text" name="lname">
- ```
+```
 
-You can also pass an `EventEmitter<boolean>` as `setFocus` like so:
+You can also pass an `EventEmitter<boolean>` to the `setFocus` input. Imagine a component called `MyComponent`:
 
 ```typescript
 export class MyComponent {
     // We will pass this to the directive in our view
     focusEvent = new EventEmitter<boolean>();
+    // When called, will set the focus on our input
     setFocus() {
         this.focusEvent.emit(true);
     }
 }
 ```
+
+In the template for `MyComponent`:
 
 ```html
 <input [libFocus]="false" [setFocus]="focusEvent">`
