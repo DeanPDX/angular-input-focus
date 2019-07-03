@@ -57,6 +57,8 @@ In the template for `MyComponent`:
 
 Whenever your `focusEvent` emits a value, your element will focus/blur depending on whether the emitted value is `true` or `false`.
 
+If you're using [Angular Material](https://material.angular.io/), Change Detection needs to run after setting focus because Angular Material tracks focus; otherwise you will get the dreaded `ExpressionChangedAfterItHasBeenCheckedError` exception. If you are using native HTML inputs, you can skip change detection by setting `[skipChangeDetection]="true"`.
+
 ## Development
 
 The main app (`angular-input-focus-tester`) is for testing the `angular-input-focus` library in the `projects` folder. Run `ng serve` to build and serve the test app.
