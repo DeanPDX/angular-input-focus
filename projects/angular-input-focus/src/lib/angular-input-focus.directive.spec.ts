@@ -12,7 +12,7 @@ export class MockElementRef extends ElementRef {
 @Component({
   template: `
   <!-- For testing autofocus like functionality -->
-  <input [libFocus]="true">
+  <input [libFocus]="true" [skipChangeDetection]="true">
   <!-- For testing event-driven functionality -->
   <input [libFocus]="false" [setFocus]="focusEvent">`
 })
