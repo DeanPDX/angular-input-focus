@@ -1,6 +1,6 @@
 environment:
   matrix:
-  - nodejs_version: "10"
+  - nodejs_version: "16"
 
 matrix:
   fast_finish: true
@@ -14,8 +14,9 @@ test_script:
   - npm run auto-test
 
 # Upload results to appveyor
+# TODO: figure out how to fix this...
 on_finish:
-  - npm run coverage
+#  - npm run coverage
   - ps: $wc = New-Object 'System.Net.WebClient'
   - ps: $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\TEST-RESULTS.xml))
 
