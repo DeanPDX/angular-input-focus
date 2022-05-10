@@ -11,7 +11,7 @@
     "auto-test": "ng test angular-input-focus --browsers ChromeHeadless --reporters junit --code-coverage --watch=false",
     "ci-build": "ng build angular-input-focus",
     "coverage": "codecov",
-    "build-lib": "ng build angular-input-focus && npm run copy-license && npm run copy-readme",
+    "build-lib": "ng build angular-input-focus --prod && npm run copy-license && npm run copy-readme",
     "patch-version": "cd projects/angular-input-focus && npm version patch && cd ../../",
     "copy-license": "cp ./LICENSE ./dist/angular-input-focus",
     "copy-readme": "cp ./README.md ./dist/angular-input-focus",
