@@ -167,6 +167,6 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-input-focus-tester"
+    }
+  }
 }
