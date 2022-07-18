@@ -1,12 +1,12 @@
-<div style="text-align:center">
+<div class="content">
   <h1>{{ title }}</h1>
-</div>
-<button (click)="showInput = !showInput">Toggle Input</button>
-<button (click)="focus = !focus">Toggle Focus</button>
-<button (click)="delayToggleFocus()">Focus for one second then blur</button>
-<div class="input-container">
-  <label for="focus">Focus?</label><input id="focus" type="checkbox" [checked]="focus" (change)="focus = !focus">
-</div>
-<div *ngIf="showInput" class="input-container">
-  <label>Input:</label> <input [libFocus]="focus" [setFocus]="focusEvent">
+  <button (click)="showInput = !showInput">Toggle Input</button>
+  <button (click)="focus = !focus">Toggle Focus</button>
+  <button (click)="delayToggleFocus()">Focus for one second then blur</button>
+  <div class="input-container">
+    <label for="focus">Focus?</label><input id="focus" type="checkbox" [checked]="focus" (change)="focus = !focus">
+  </div>
+  <div *ngIf="showInput" class="input-container">
+    <label>Input:</label> <input [libFocus]="focus" [setFocus]="focusEvent">
+  </div>
 </div>

@@ -1,3 +1,21 @@
+h1 {
+    text-align: center;
+}
+
+.content {
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+
+button {
+    margin-right: 8px;
+    margin-bottom:10px;
+}
+
 .input-container {
     padding-top: 10px;
 }
